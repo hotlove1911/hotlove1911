@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        我的名字{{ name }},我的年龄{{ age }}
+        <button @click="login()">
+            用户登录
+        </button>
+        <div :class="row">改变class</div>
+        <div v-show="isshow">动态的显示隐藏</div>
+        <div v-if="ad">动态的删除增加</div>
+        <li v-for="(item,index) in datalist">{{ item }}---{{index}}</li>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                name:"hotlove",
+                age:"20",
+                row:'row',
+                isshow:true,
+                ad:true,
+                datalist:['1111','222','3333','44444']
+            },
+            
+
+            methods:{
+                login(){
+                    this.name = '访客用户',
+                    this.row = 'active',
+                    this.isshow = !this.isshow,
+                    this.ad = !this.ad
+                }
+            }
+        })
+    </script>
+</body>
+</html>
